@@ -1,37 +1,31 @@
-<div class="container-form">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="container-form">
   <label>
     Nom d'utilisateur:
-    <input type="text" [formControl]="username" />
+    <input type="text" formControlName="username" />
   </label>
-  <label>
-    Email:
-    <input type="email" [formControl]="email" />
-  </label>
-  <label>
-    Mot de passe:
-    <input type="password" [formControl]="password" />
-  </label>
-  <label>
-    Numéro de rue:
-    <input type="text" [formControl]="streetNumber" />
-  </label>
-  <label>
-    Code postal:
-    <input type="text" [formControl]="postal" />
-  </label>
-  <label>
-    Ville:
-    <input type="text" [formControl]="street" />
-  </label>
-
-  <button (click)="onSubmit()">Envoyer</button>
-
-  <div *ngIf="user">
-    <p>{{ user.username }}</p>
-    <p>{{ user.mail }}</p>
-    <p>{{ user.password }}</p>
-    <p>{{ user.streetNumber }}</p>
-    <p>{{ user.postal }}</p>
-    <p>{{ user.street }}</p>
+  <div formGroupName="credentials">
+    <label>
+      Email:
+      <input type="email" formControlName="email" />
+    </label>
+    <label>
+      Mot de passe:
+      <input type="password" formControlName="password" />
+    </label>
   </div>
-</div>
+  <div formGroupName="address">
+    <label>
+      Numéro de rue:
+      <input type="text" formControlName="streetNumber" />
+    </label>
+    <label>
+      Code postal:
+      <input type="text" formControlName="postal" />
+    </label>
+    <label>
+      Ville:
+      <input type="text" formControlName="street" />
+    </label>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Envoyer</button>
+</form>
