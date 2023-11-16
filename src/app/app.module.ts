@@ -8,9 +8,12 @@ import { UserComponent } from './user/user.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LogInterceptor } from './interceptor/log.interceptor';
 import { SecuredComponent } from './secured/secured.component';
+import { HomeComponent } from './components/home/home.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
-  declarations: [AppComponent, UserComponent, SecuredComponent],
+  declarations: [AppComponent, UserComponent, SecuredComponent, HomeComponent, DashboardComponent, AdminComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
